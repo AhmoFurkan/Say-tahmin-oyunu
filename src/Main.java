@@ -1,22 +1,36 @@
-import java.util.Scanner;
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int ındıs = 0;
+        String[][] letter = new String[7][4];
 
-        System.out.print("Dizinin Boyutunu Giriniz :");
-        int a =input.nextInt();
-        int[] list =new int[a];
-        System.out.println(" Dizinin Elemanlarını giriniz :");
-
-        for (int i=1; i<=a; i++, ındıs++){
-            System.out.print(i + ". Elemanı");
-            int eleman =input.nextInt();
-            list[ındıs]=eleman;
+        for (int i = 0; i < letter.length; i++) {
+            for (int j = 0; j < letter[i].length; j++) {
+                if (i == 0 || i == 3 || i == 6) {
+                    letter[i][j] = " * ";
+                } else if (j == 0 || j == 3) {
+                    letter[i][j] = " * ";
+                } else {
+                    letter[i][j] = "   ";
+                }
+                if (j == 3) {
+                    if (i == 0 || i == 3 || i == 6) {
+                        letter[i][j] = "   ";
+                    }
+                }
+            }
         }
-        Arrays.sort(list);
-        System.out.println(Arrays.toString(list));
+
+
+
+
+
+
+        for (String[] row : letter) {
+            for (String col : row) {
+                System.out.print(col);
+            }
+            System.out.println();
+        }
+
+
     }
 }
